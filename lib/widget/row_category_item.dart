@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 
 class RowCategoryItem extends StatelessWidget {
   final Color? clr;
-  RowCategoryItem({this.clr});
+  final String? title;
+  final String? shoesCount;
+  RowCategoryItem({
+    this.clr,
+    this.title,
+    this.shoesCount,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +16,7 @@ class RowCategoryItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Lifestyle',
+          title!,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
@@ -18,7 +24,8 @@ class RowCategoryItem extends StatelessWidget {
           ),
         ),
         Text(
-          '35 items',
+          shoesCount!,
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.grey,
             fontWeight: FontWeight.w900,

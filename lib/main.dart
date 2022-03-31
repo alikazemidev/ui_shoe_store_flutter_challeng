@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:ui_store/widget/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/rendering.dart';
+import 'package:ui_store/widget/category_shoe_item.dart';
 import 'package:ui_store/widget/row_category_item.dart';
 
 void main() {
@@ -264,33 +266,67 @@ class _MainContentState extends State<MainContent> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        RowCategoryItem(clr: Colors.black),
-        RowCategoryItem(clr: Colors.grey),
-        RowCategoryItem(clr: Colors.grey),
+        RowCategoryItem(
+          clr: Colors.black,
+          title: 'Lifestyle',
+          shoesCount: '35 items',
+        ),
+        RowCategoryItem(
+          clr: Colors.grey,
+          title: 'Running',
+          shoesCount: '41 items',
+        ),
+        RowCategoryItem(
+          clr: Colors.grey,
+          title: 'Tennis',
+          shoesCount: '15 items',
+        ),
       ],
+    );
+  }
+
+  // *lifestyle row item
+  Widget _getListStyleShoes() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          CategoryshoeItem(),
+          SizedBox(width: 30),
+          CategoryshoeItem(),
+        ],
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          // * header
-          _getHeader(),
-          SizedBox(
-            height: 20,
-          ),
-          // * slider
-          _getSlider(),
-          SizedBox(
-            height: 20,
-          ),
-          // *category row
-          _getCategoryRow(),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            // * header
+            _getHeader(),
+            SizedBox(
+              height: 20,
+            ),
+            // * slider
+            _getSlider(),
+            SizedBox(
+              height: 20,
+            ),
+            // *category row
+            _getCategoryRow(),
+            SizedBox(
+              height: 20,
+            ),
+            // *lifestyle row item
+            _getListStyleShoes(),
+          ],
+        ),
       ),
     );
   }
 }
+
