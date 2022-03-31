@@ -289,7 +289,7 @@ class _MainContentState extends State<MainContent> {
   Widget _getListStyleShoes() {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(
+      child:Row(
         children: [
           CategoryshoeItem(),
           SizedBox(width: 30),
@@ -329,4 +329,3 @@ class _MainContentState extends State<MainContent> {
     );
   }
 }
-
